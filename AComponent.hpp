@@ -26,7 +26,7 @@ class AComponent : public virtual IComponent
         std::map<std::size_t, Link> _links; //just make a map of links
 
     public:
-        AComponent();
+        AComponent() = default;
         //AComponent(const AComponent& other);
         //AComponent& operator=(const AComponent& other);
         ~AComponent() = default;

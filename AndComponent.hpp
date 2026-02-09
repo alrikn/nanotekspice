@@ -20,12 +20,7 @@ class AndComponent : public virtual AComponent
     private:
     protected:
     public:
-        AndComponent();
 
-        //ngl i have genuinely no clue what compute takes as an input.
-        //i have 0 clue what pin its supposed to be. is it the output pin?
-        //shouldn't we already have all our inputs?
-        //what is going on
         nts :: Tristate compute ( std :: size_t pin ) override
         {
             if (pin != 2) //the return pin

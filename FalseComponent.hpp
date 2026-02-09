@@ -20,8 +20,8 @@ class FalseComponent  : public virtual AComponent
     private:
     protected:
     public:
-        FalseComponent();
-        ~FalseComponent() = default;
+        //FalseComponent();
+        //~FalseComponent() = default;
 
         nts :: Tristate compute ( std :: size_t pin ) override
         {

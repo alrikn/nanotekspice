@@ -8,12 +8,25 @@
 #include "IComponent.hpp"
 #include "AComponent.hpp"
 #include "AndComponent.hpp"
+#include "NotComponent.hpp"
+#include "TrueComponent.hpp"
+#include "FalseComponent.hpp"
+
+
+
+
 #include <memory>
 
 #include <ostream>
 std :: ostream & operator <<( std :: ostream & s , nts :: Tristate v)
 {
-/* Implement me */
+    if (v == nts::Undefined)
+        s << "U";
+    if (v == nts::True)
+        s << "1";
+    if (v == nts::False)
+        s << "0";
+    return s;
 }
 int main ( void )
 {
