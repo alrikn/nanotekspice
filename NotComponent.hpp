@@ -24,10 +24,10 @@ class NotComponent : public virtual AComponent
 
         nts :: Tristate compute ( std :: size_t pin ) override
         {
-            if (pin != 1) //return pin
+            if (pin != 2) //return pin
                 return Undefined;
 
-            auto input = getLink(0);
+            auto input = getLink(1);
 
             switch (input) {
                 case Undefined:

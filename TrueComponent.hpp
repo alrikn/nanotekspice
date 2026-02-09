@@ -25,7 +25,7 @@ class TrueComponent  : public virtual AComponent
 
         nts :: Tristate compute ( std :: size_t pin ) override
         {
-            if (pin != 0) //return pin
+            if (pin != 1) //return pin
                 return Undefined;
             return True;
         }
