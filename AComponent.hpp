@@ -13,7 +13,7 @@
 #include <iostream>
 #include <map>
 namespace nts {
-class AComponent : virtual IComponent
+class AComponent : public virtual IComponent
 {
     private:
     protected:
@@ -47,7 +47,7 @@ class AComponent : virtual IComponent
         {
             if (_links.count(pin) == 0)
                 return Undefined;
-            return _links[pin].component->compute(pin); //gotta admit, no clue what compute is supposed to take as input
+            return _links[pin].component->compute(_links[pin].pin); //compute takes as an input the supposed return pin
         }
 };
 }

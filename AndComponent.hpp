@@ -15,7 +15,7 @@
 namespace nts {
 
 
-class AndComponent : virtual AComponent
+class AndComponent : public virtual AComponent
 {
     private:
     protected:
@@ -28,6 +28,8 @@ class AndComponent : virtual AComponent
         //what is going on
         nts :: Tristate compute ( std :: size_t pin ) override
         {
+            if (pin != 2) //the return pin
+                return Undefined;
             auto a = getLink(0);
             auto b = getLink(1);
 
