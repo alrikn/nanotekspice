@@ -32,10 +32,10 @@ enum CacheState {
 };
 
 struct CacheKeyHash { //had to look this up ngl, don't really get it
-    std::size_t operator()(CacheKey const& k) const noexcept {
-        // combine pointer and pin into a size_t hash
-        auto p = reinterpret_cast<uintptr_t>(k.comp);
-        return (p >> 4) ^ (k.pin * 0x9e3779b97f4a7c15ULL);
+    size_t operator()(CacheKey const& k) const noexcept {
+        size_t h1 = std::hash<void*>{}(k.comp); //generate rand num from comp
+        size_t h2 = std::hash<size_t>{}(k.pin); //generate random num from pin
+        return h1 ^ (h2 << 1); //xor to combine
     }
 };
 
