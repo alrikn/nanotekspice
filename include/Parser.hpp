@@ -8,7 +8,6 @@
 #ifndef INCLUDED_PARSER_HPP
     #define INCLUDED_PARSER_HPP
 
-#include <iostream>
 #include "Circuit.hpp"
 namespace nts {
 

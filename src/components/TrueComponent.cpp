@@ -7,7 +7,12 @@
 
 #include "TrueComponent.hpp"
 
-
+nts::TrueComponent::TrueComponent()
+{
+    component_links = {
+        {1, OuputType},
+    };
+}
 
 nts :: Tristate nts::TrueComponent::compute ( std :: size_t pin )
 {

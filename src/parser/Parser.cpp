@@ -11,6 +11,6 @@
 
 void nts::Parser::parse_chipset()
 {
-
+    
 }
 

@@ -19,7 +19,7 @@ class NotComponent : public virtual AComponent
     private:
     protected:
     public:
-        //NotComponent();
+        NotComponent();
         //~NotComponent() = default;
 
         nts :: Tristate compute ( std :: size_t pin ) override;

@@ -6,7 +6,9 @@
 */
 
 #include "AComponent.hpp"
+#include "Circuit.hpp"
 #include "HashMapCache.hpp"
+#include <cstddef>
 
 
 void nts::AComponent::simulate(size_t tick)
@@ -26,4 +28,11 @@ nts::Tristate nts::AComponent::getLink(size_t pin)
         return Undefined;
     auto &da_link = _links[pin];
     return compute_hashmap(da_link.component, da_link.pin); //compute takes as an input the supposed return pin
+}
+
+nts::Class_type nts::AComponent::get_type(size_t pin)
+{
+    if (component_links.count(pin) == 0)
+        return UndefinedType;
+    return component_links[pin];
 }

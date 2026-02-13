@@ -6,7 +6,16 @@
 */
 
 #include "AndComponent.hpp"
+#include "Circuit.hpp"
 
+nts::AndComponent::AndComponent()
+{
+    component_links = {
+        {1, InputType},
+        {2, InputType},
+        {3, OuputType},
+    };
+}
 
 nts :: Tristate nts::AndComponent::compute ( std :: size_t pin )
 {

@@ -6,7 +6,14 @@
 */
 
 #include "FalseComponent.hpp"
+#include "Circuit.hpp"
 
+nts::FalseComponent::FalseComponent()
+{
+    component_links = {
+        {1, OuputType},
+    };
+}
 
 nts :: Tristate nts::FalseComponent::compute ( std :: size_t pin )
 {
