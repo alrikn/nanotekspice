@@ -33,23 +33,15 @@ nts::Component4071::Component4071()
 {
     component_links = {
         //or1
-        {1, InputType},
-        {2, InputType},
-        {3, OuputType},
+        {1, InputType},{2, InputType},{3, OuputType},
         //or2
-        {4, OuputType},
-        {5, InputType},
-        {6, InputType},
+        {4, OuputType},{5, InputType},{6, InputType},
         //ignored
         {7,UndefinedType},
         //or3
-        {8, InputType},
-        {9, InputType},
-        {10, OuputType},
+        {8, InputType},{9, InputType},{10, OuputType},
         //or4
-        {11, OuputType},
-        {12, InputType},
-        {13, InputType},
+        {11, OuputType},{12, InputType},{13, InputType},
         //ignored
         {14,UndefinedType},
     };
@@ -58,19 +50,35 @@ nts::Component4071::Component4071()
     or1.setLink(2, *this, 2);
     or1.setLink(3, *this, 3);
 
+    //OR2 -> pins 5,6 -> 4
+    or2.setLink(1, *this, 5);
+    or2.setLink(2, *this, 6);
+    or2.setLink(3, *this, 4);
+
+    //OR3 -> pins 8,9 -> 10
+    or3.setLink(1, *this, 8);
+    or3.setLink(2, *this, 9);
+    or3.setLink(3, *this, 10);
+
+    //OR4 -> pins 12,13 -> 11
+    or4.setLink(1, *this, 12);
+    or4.setLink(2, *this, 13);
+    or4.setLink(3, *this, 11);
+
 }
 
 nts :: Tristate nts::Component4071::compute ( std :: size_t pin )
 {
-    if (pin != 3) //the return pin
-        return Undefined;
-    auto a = getLink(1);
-    auto b = getLink(2);
-
-    //most scuffed way of doing or statement, but can't think of anything better
-    if (a == Undefined || b == Undefined)
-        return Undefined;
-    if (a == False && b == False)
-        return False;
-    return True;
+    switch (pin) {
+        case 3:
+            return or1.compute(3);
+        case 4:
+            return or2.compute(3);
+        case 10:
+            return or3.compute(3);
+        case 11:
+            return or4.compute(3);
+        default:
+            return Undefined;
+    }
 }
