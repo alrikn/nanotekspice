@@ -8,7 +8,6 @@
 #ifndef INCLUDED_NOTCOMPONENT_HPP
     #define INCLUDED_NOTCOMPONENT_HPP
 
-#include <iostream>
 #include "AComponent.hpp"
 #include "IComponent.hpp"
 

@@ -19,6 +19,8 @@ void nts::AComponent::simulate(size_t tick)
 //set da link
 void nts::AComponent::setLink(size_t pin, nts::IComponent &other, size_t otherPin)
 {
+    //TODO: you should be able to connect may pins to a single output, but only to outputs
+    //so figure that out
     _links[pin] = {&other, otherPin};
 }
 
