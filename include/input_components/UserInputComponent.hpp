@@ -9,12 +9,13 @@
     #define INCLUDED_USERINPUTCOMPONENT_HPP
 
 #include "AComponent.hpp"
+#include "ASpecialComponent.hpp"
 #include "IComponent.hpp"
 
 
 namespace nts {
 
-class UserInputComponent  : public virtual AComponent
+class UserInputComponent  : public virtual ASpecialComponent
 {
     private:
     protected:
