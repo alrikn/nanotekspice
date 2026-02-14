@@ -35,10 +35,10 @@ const std::initializer_list<int> pin_combinations = { //there is probably a bett
 
 enum ClassType {
     NormalComponent,
-    LoggerComponent, //this is useful to keep because this is special case, and we need to call comput on it directly
+    LoggerComponent, //this is useful to keep because this is special case, and we need to call comput on it directly (overwrite simultate)
     ClockComponent, //i am not sure this one has good reason to be here? we might need to remove it.
-    InDisplayComponent, //what we show on the display
-    OutDisplayComponent, //what we show on the display, it does not need a special treatement because it has a input
+    InDisplayComponent, //what we show on the display, no special treatement needed
+    OutDisplayComponent, //what we show on the display, it needs special tretement, (class needs to overwrite simulate)
 };
 
 struct ComponentEntry {

@@ -10,7 +10,6 @@
 
 #include "AComponent.hpp"
 #include "IComponent.hpp"
-#include <iostream>
 
 namespace nts {
 
