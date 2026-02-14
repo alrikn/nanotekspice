@@ -39,7 +39,7 @@ class AComponent : public virtual IComponent
         //set da link
         void setLink(size_t pin, nts::IComponent &other, size_t otherPin) override;
 
-        nts::Tristate getLink(size_t pin);
+        nts::Tristate getLink(size_t pin); //calls the component associated with pin (make sure the pin is an input) and get the return value
 
         PinType get_type(size_t pin); //gets the pin from the component link
 };

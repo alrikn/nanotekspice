@@ -33,10 +33,7 @@ void Circuit::simulate(std::size_t tick) { // there should probably be an order 
     // since it has an output valve that goes outside of the program in a sense
     // (that or the logger needs to overwrite the simulate which works too)
     for (auto &c : components)
-        if (c.second.type == LoggerComponent)
-            throw std::runtime_error("Logger hasn't been done yet");
-        else
-            c.second.component->simulate(tick);
+        c.second.component->simulate(tick);
 }
 
 ClassType Circuit::getType(const std::string& name)

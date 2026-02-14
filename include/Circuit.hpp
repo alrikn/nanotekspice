@@ -25,12 +25,6 @@ enum PinType { //primes (cus if u add up any with each other or with itself its 
 
 const std::initializer_list<int> pin_combinations = { //there is probably a better way but it is late and i am tired
     OuputType + InputType, //normal input + normal output
-    //OuputType + UserOutputType, //normal output + user output
-    //UserInputType + InputType,
-    //UserInputType + UserOutputType,
-    //PureInputType + InputType,
-    //PureInputType + UserOutputType,
-
 };
 
 enum ClassType {
