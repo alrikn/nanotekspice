@@ -42,6 +42,8 @@ class AComponent : public virtual IComponent
         nts::Tristate getLink(size_t pin); //calls the component associated with pin (make sure the pin is an input) and get the return value
 
         PinType get_type(size_t pin); //gets the pin from the component link
+
+        virtual nts::Tristate compute(std::size_t pin) override;
 };
 }
 

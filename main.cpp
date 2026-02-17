@@ -6,6 +6,8 @@
 */
 
 #include "Circuit.hpp"
+#include "Component4069.hpp"
+#include "Component4081.hpp"
 #include "IComponent.hpp"
 #include "AComponent.hpp"
 #include "AndComponent.hpp"
@@ -37,16 +39,17 @@ void test_func()
 {
     nts::Circuit the_circuit;
 
-    auto gate = std :: make_unique < nts :: AndComponent >() ;
+    auto gate = std :: make_unique < nts :: Component4069 >() ;
     auto input_a = std :: make_unique < nts :: UserInputComponent >() ;
     auto input_b = std :: make_unique < nts :: UserInputComponent >() ;
     auto output_c = std :: make_unique < nts :: UserOutputComponent >() ;
 
     gate -> setLink (1 , * input_a , 1) ;
-    gate -> setLink (2 , * input_b , 1) ;
-    output_c -> setLink (1 , * gate , 3) ;
+    //gate -> setLink (2 , * input_b , 1) ;
+    //output_c -> setLink (1 , * gate , 3) ;
+    output_c -> setLink (1 , * gate , 2) ;
 
-    input_a->set_real_value(nts::True);
+    input_a->set_real_value(nts::False);
     input_b->set_real_value(nts::False);
     //we add them to the circuit
     the_circuit.addComponent("input_a", std::move(input_a), nts::InDisplayComponent);

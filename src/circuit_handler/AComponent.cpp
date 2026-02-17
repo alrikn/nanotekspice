@@ -10,7 +10,7 @@
 #include "HashMapCache.hpp"
 #include <cstddef>
 
-// UserOutputTypes and logOutput types will have to overwrite this func as they have their own separate logic
+// the logger may have to overwrite this
 void nts::AComponent::simulate(size_t tick)
 {
     for (std::pair<const unsigned long, nts::PinType> link_type : component_links) {
@@ -40,4 +40,10 @@ nts::PinType nts::AComponent::get_type(size_t pin)
     if (component_links.count(pin) == 0)
         return UndefinedType;
     return component_links[pin];
+}
+
+//this will be default behaviour
+nts::Tristate nts::AComponent::compute(std::size_t pin)
+{
+    return getLink(pin);
 }
