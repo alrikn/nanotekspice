@@ -2,26 +2,29 @@
 ** EPITECH PROJECT, 2026
 ** nanotekspice
 ** File description:
-** OrComponent
+** NandComponent
 */
 
-#ifndef INCLUDED_ORCOMPONENT_HPP
-    #define INCLUDED_ORCOMPONENT_HPP
+#ifndef INCLUDED_NANDCOMPONENT_HPP
+    #define INCLUDED_NANDCOMPONENT_HPP
+
+#include <iostream>
 
 #include "AComponent.hpp"
+#include "IComponent.hpp"
 
 namespace nts {
 
 
-
-class OrComponent : public virtual AComponent
+class NandComponent : public virtual AComponent
 {
     private:
     protected:
     public:
-        OrComponent();
+        NandComponent();
         nts :: Tristate compute ( std :: size_t pin ) override;
 
 };
 }
+
 #endif

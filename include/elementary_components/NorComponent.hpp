@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2026
 ** nanotekspice
 ** File description:
-** OrComponent
+** NorComponent
 */
 
-#ifndef INCLUDED_ORCOMPONENT_HPP
-    #define INCLUDED_ORCOMPONENT_HPP
+#ifndef INCLUDED_NORCOMPONENT_HPP
+    #define INCLUDED_NORCOMPONENT_HPP
 
 #include "AComponent.hpp"
 
@@ -14,12 +14,12 @@ namespace nts {
 
 
 
-class OrComponent : public virtual AComponent
+class NorComponent : public virtual AComponent
 {
     private:
     protected:
     public:
-        OrComponent();
+        NorComponent();
         nts :: Tristate compute ( std :: size_t pin ) override;
 
 };

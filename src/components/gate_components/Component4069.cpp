@@ -41,7 +41,7 @@
 #include "AGateComponent.hpp"
 #include "NotComponent.hpp"
 
-std::unique_ptr<nts::NotComponent> make_func()
+static std::unique_ptr<nts::NotComponent> make_func()
 {
     return std::make_unique<nts::NotComponent>();
 }

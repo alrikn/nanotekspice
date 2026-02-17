@@ -9,7 +9,6 @@
     #define INCLUDED_COMPONENT4069_HPP
 
 #include "AGateComponent.hpp"
-#include <iostream>
 namespace nts {
 
 
