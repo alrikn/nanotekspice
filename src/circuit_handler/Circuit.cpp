@@ -23,7 +23,8 @@ void Circuit::addComponent(std::string name, std::unique_ptr<IComponent> c, Clas
 std::unique_ptr<IComponent> &Circuit::getComponent(std::string const &name)
 {
     if (components.count(name) == 0)
-        raise(3); //placeholder until we find real error
+        //raise(3); //placeholder until we find real error
+        throw std::runtime_error("Unkown component name: '" + name + "'.");
     return components[name].component;
 }
 
