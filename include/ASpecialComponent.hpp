@@ -22,7 +22,7 @@ class ASpecialComponent : public virtual AComponent
         Tristate display_value = Undefined; //display value only gets updated when compute gets called on it
         Tristate real_value = Undefined; //this is the one that is always up to date
     public:
-        Tristate get_display_value() {return display_value;}
+        virtual Tristate get_display_value() {return display_value;}
         void set_real_value(Tristate new_value) {real_value = new_value;}
 };
 }

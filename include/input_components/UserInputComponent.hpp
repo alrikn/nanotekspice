@@ -23,6 +23,7 @@ class UserInputComponent  : public virtual ASpecialComponent
         //UserInputComponent();
         //~UserInputComponent() = default;
         void simulate(size_t tick) override;
+        Tristate get_display_value() override {return real_value;} //possible reason why thhe mouli shows undefined when it supposed to be set
         UserInputComponent();
         nts :: Tristate compute ( std :: size_t pin ) override;
 
