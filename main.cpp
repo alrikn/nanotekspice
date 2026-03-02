@@ -75,11 +75,15 @@ int main (int argc, char **argv)
         std::cerr << "Usage: " << argv[0] << " <file.nts>\n";
         return 84;
     }
-
-    nts::Parser parser(argv[1]);
-    parser.run_parser();
-    nts::Circuit &circuit = parser.getCircuit();
-    CLI_interface interface;
-    interface.run_loop(circuit);
+    try {
+        nts::Parser parser(argv[1]);
+        parser.run_parser();
+        nts::Circuit &circuit = parser.getCircuit();
+        CLI_interface interface;
+        interface.run_loop(circuit);
+    } catch (const std::exception &e) {
+        std::cerr << "Error: " << e.what() << "\n";
+        return 84;
+    }
 
 }
