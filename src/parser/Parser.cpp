@@ -29,11 +29,13 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
-#include <algorithm>
 #include <cctype>
 #include <functional>
 #include <unordered_map>
 #include <vector>
+
+//advanced
+#include "Component4008.hpp"
 
 //helpers
 
@@ -79,7 +81,6 @@ static std::pair<std::unique_ptr<nts::IComponent>, nts::ClassType> create_compon
         {"xor", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::XorComponent()), nts::NormalComponent); }},
         {"not", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::NotComponent()), nts::NormalComponent); }},
         {"logger", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::LoggerComponent()), nts::NormalComponent); }},
-        //TODO:logger
         //gate components
         {"4001", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::Component4001()), nts::NormalComponent); }},
         {"4011", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::Component4011()), nts::NormalComponent); }},
@@ -87,7 +88,8 @@ static std::pair<std::unique_ptr<nts::IComponent>, nts::ClassType> create_compon
         {"4069", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::Component4069()), nts::NormalComponent); }},
         {"4071", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::Component4071()), nts::NormalComponent); }},
         {"4081", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::Component4081()), nts::NormalComponent); }},
-
+        //advanced components
+        {"4008", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::Component4008()), nts::NormalComponent); }},
     };
 
     auto it = factory.find(type);

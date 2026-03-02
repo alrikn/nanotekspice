@@ -160,6 +160,7 @@ int CLI_interface::run_loop(Circuit &circuit)
     _circuit = &circuit;
     std::string raw;
 
+    handle_simulate(); //simulate once at start to update all the outputs based on the initial inputs before we display for the first time
     while (true) {
         std::cout << "> ";
         if (!std::getline(std::cin, raw))
