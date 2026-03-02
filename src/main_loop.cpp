@@ -109,8 +109,6 @@ bool CLI_interface::handle_simulate()
 
 bool CLI_interface::handle_display()
 {
-    if (tick > 0)
-        std::cout << "tick: " << tick << '\n';
     try {
         _circuit->display();
     } catch (const std::exception &e) { //TODO: proper error management class
