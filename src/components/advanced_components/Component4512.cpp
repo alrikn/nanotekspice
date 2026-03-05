@@ -32,21 +32,21 @@
 nts::Component4512::Component4512()
 {
     component_links = {
-        {1, InputType},
-        {2, InputType},
-        {3, InputType},
-        {4, InputType},
-        {5, InputType},
-        {6, InputType},
-        {7, InputType},
-        {8, InputType},
-        {9, InputType},
-        {10, InputType},
-        {11, InputType},
-        {12, InputType},
-        {13, InputType},
-        {14, OutputType},
-        {15, InputType}
+        {1, InputType}, //in_0
+        {2, InputType}, //in_1
+        {3, InputType}, //in_2
+        {4, InputType},//in_3
+        {5, InputType},//in_4
+        {6, InputType},//in_5
+        {7, InputType},//in_6
+        {8, UndefinedType}, //not connected to anything
+        {9, InputType}, //in_7
+        {10, InputType}, //inhibit
+        {11, InputType}, //in_a
+        {12, InputType}, //in_b
+        {13, InputType}, //in_c
+        {14, OutputType}, //out_data
+        {15, InputType} //enable
     };
 }
 
@@ -77,13 +77,19 @@ nts :: Tristate nts::Component4512::compute ( std :: size_t pin )
     Tristate enable = getLink(15);
     Tristate inhibit = getLink(10);
 
-    if (enable != False)
+    if (enable != False || inhibit == Undefined)
         return Undefined;
 
     if (inhibit == True)
         return False;
-    if (inhibit == Undefined)
-        return Undefined;
+
+    //what i have observed:
+    //when enable is true we return undefined, regardless of the value of inhibit
+    //when inhibit is true we return false.
+    //both inhibit and enable have to be false to be able to get to any part of the code
+    //if inhibit or enable is undefined we return undefined.
+    //we need to have all the input a through c to be defined to not return undefined
+
     //we build the index of the input we need to return based on the address inputs
     int index = 0;
     Tristate possibilities[3] = {getLink(13), getLink(12), getLink(11)};
@@ -97,6 +103,10 @@ nts :: Tristate nts::Component4512::compute ( std :: size_t pin )
         index |= 2;
     if (possibilities[2] == nts::True) //A is the least significant bit
         index |= 1;
-    return getLink(index + 1); //we return the value of the input at the
+    int return_pin = index + 1; //index max value is 7, so we add 1 to get the corresponding input pin (since our input pins are 1-indexed)
+    if (return_pin >= 8)
+        return_pin += 1;
+
+    return getLink(return_pin);
     //index we just computed (we add 1 because our inputs are 1-indexed)
 }
