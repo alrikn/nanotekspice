@@ -12,6 +12,7 @@ SRC = main.cpp	\
 	src/circuit_handler/Circuit.cpp \
 	src/components/AComponent.cpp \
 	src/components/AGateComponent.cpp \
+	src/components/advanced_components/Component2716.cpp \
 	src/components/advanced_components/Component4008.cpp \
 	src/components/advanced_components/Component4013.cpp \
 	src/components/advanced_components/Component4040.cpp \

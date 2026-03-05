@@ -40,6 +40,7 @@
 #include "Component4013.hpp"
 #include "FlipFlopComponent.hpp"
 #include "Component4040.hpp"
+#include "Component2716.hpp"
 //helpers
 
 static std::string remove_inline_comment(const std::string &line)
@@ -97,6 +98,7 @@ static std::pair<std::unique_ptr<nts::IComponent>, nts::ClassType> create_compon
         {"4013", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::Component4013()), nts::NormalComponent); }},
         {"flipflop", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::FlipFlopComponent()), nts::NormalComponent); }}, //tchnically not an obligatory component but since its used in 4013, might as well add it to the factory
         {"4040", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::Component4040()), nts::NormalComponent); }},
+        {"2716", []() { return Pair(std::unique_ptr<nts::IComponent>(new nts::Component2716()), nts::NormalComponent); }},
     };
 
     auto it = factory.find(type);
