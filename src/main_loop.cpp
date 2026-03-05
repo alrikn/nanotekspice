@@ -173,8 +173,8 @@ int CLI_interface::run_loop(Circuit &circuit)
     if (circuit.isEmpty())
         throw std::runtime_error("Circuit is empty. Nothing to simulate.");
 
-    //handle_simulate(); //simulate once at start to update all the outputs based on the initial inputs before we display for the first time
-    tick = 0; //we need to set tick to 0 here since handle_simulate increments it at the start, and we want the first display to show tick 0 not tick -1
+    handle_simulate(); //simulate once at start to update all the outputs based on the initial inputs before we display for the first time
+    //tick = 0; //we need to set tick to 0 here since handle_simulate increments it at the start, and we want the first display to show tick 0 not tick -1
     while (true) {
         std::cout << "> ";
         if (!std::getline(std::cin, raw))
