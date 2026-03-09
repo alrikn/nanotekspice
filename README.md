@@ -1,4 +1,4 @@
-# Nanotekspice
+# LogicSim
 
 Nanotekspice is a **C++ digital circuit simulator** that emulates logic gates and integrated circuits.
 It reads a circuit description file (`.nts`), builds the corresponding component graph, and simulates the circuit tick by tick.
